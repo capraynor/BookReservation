@@ -20,7 +20,11 @@ namespace BookReservationSystem {
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js" ) );
 
-            bundles.Add ( new StyleBundle ( "~/Content/css" ).Include (
+            bundles.Add ( new StyleBundle ( "~/Content/BootstrapCSS" ).Include (
+                      "~/Content/bootstrap.css",
+                      "~/Content/site.css" ) );
+
+            bundles.Add ( new StyleBundle ( "~/Content/LoginCSS" ).Include (
                       "~/Content/bootstrap.css",
                       "~/Content/site.css" ) );
         }
