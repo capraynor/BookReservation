@@ -10,16 +10,20 @@
 namespace BookReservationSystem.Entities
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class T_LackBooks
+    public enum LackBooksStatus : short
     {
-        public int Id { get; set; }
-        public string ISBN { get; set; }
-        public Nullable<int> Quantity { get; set; }
-        public string VerifiedBy { get; set; }
-        public Nullable<System.DateTime> VerifiedTime { get; set; }
-        public string VerifiedNote { get; set; }
-        public Nullable<LackBooksStatus> Status { get; set; }
+        /// <summary>
+        /// 正在采购
+        /// </summary>
+        BeingProcured = 0,
+        /// <summary>
+        /// 未处理
+        /// </summary>
+        Unhandled = 1,
+        /// <summary>
+        /// 拒绝
+        /// </summary>
+        Rejected = 2
     }
 }

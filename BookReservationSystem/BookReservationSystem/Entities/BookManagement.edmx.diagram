@@ -7,10 +7,11 @@
       <Diagram DiagramId="49addc8cb8c64cc99506ef8526b5b962" Name="Diagram1">
         <EntityTypeShape EntityType="BookManagementModel.T_Book" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BookManagementModel.T_BookToBePurchased" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookManagementModel.T_LackBooks" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BookManagementModel.T_Notification" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BookManagementModel.T_Order" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BookManagementModel.T_User" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookManagementModel.T_Test" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BookManagementModel.T_LackBooks" Width="1.5" PointX="0.625" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

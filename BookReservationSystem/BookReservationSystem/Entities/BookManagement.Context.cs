@@ -27,9 +27,10 @@ namespace BookReservationSystem.Entities
     
         public virtual DbSet<T_Book> T_Book { get; set; }
         public virtual DbSet<T_BookToBePurchased> T_BookToBePurchased { get; set; }
-        public virtual DbSet<T_LackBooks> T_LackBooks { get; set; }
         public virtual DbSet<T_Notification> T_Notification { get; set; }
         public virtual DbSet<T_Order> T_Order { get; set; }
         public virtual DbSet<T_User> T_User { get; set; }
+        public virtual DbSet<T_Test> T_Test { get; set; }
+        public virtual DbSet<T_LackBooks> T_LackBooks { get; set; }
     }
 }

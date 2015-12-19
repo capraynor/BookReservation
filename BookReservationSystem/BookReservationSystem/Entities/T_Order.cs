@@ -18,6 +18,6 @@ namespace BookReservationSystem.Entities
         public string OrderOwner { get; set; }
         public string ISBN { get; set; }
         public Nullable<int> Quantity { get; set; }
-        public Nullable<short> Status { get; set; }
+        public Nullable<OrderStatus> Status { get; set; }
     }
 }

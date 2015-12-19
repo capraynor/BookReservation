@@ -18,6 +18,6 @@ namespace BookReservationSystem.Entities
         public string From { get; set; }
         public string To { get; set; }
         public string Content { get; set; }
-        public Nullable<short> Status { get; set; }
+        public Nullable<NotificationStatus> Status { get; set; }
     }
 }

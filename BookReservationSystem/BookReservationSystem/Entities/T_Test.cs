@@ -12,14 +12,9 @@ namespace BookReservationSystem.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class T_LackBooks
+    public partial class T_Test
     {
         public int Id { get; set; }
-        public string ISBN { get; set; }
-        public Nullable<int> Quantity { get; set; }
-        public string VerifiedBy { get; set; }
-        public Nullable<System.DateTime> VerifiedTime { get; set; }
-        public string VerifiedNote { get; set; }
-        public Nullable<LackBooksStatus> Status { get; set; }
+        public EnuTestType EnuTest { get; set; }
     }
 }

@@ -10,16 +10,24 @@
 namespace BookReservationSystem.Entities
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class T_LackBooks
+    public enum OrderStatus : short
     {
-        public int Id { get; set; }
-        public string ISBN { get; set; }
-        public Nullable<int> Quantity { get; set; }
-        public string VerifiedBy { get; set; }
-        public Nullable<System.DateTime> VerifiedTime { get; set; }
-        public string VerifiedNote { get; set; }
-        public Nullable<LackBooksStatus> Status { get; set; }
+        /// <summary>
+        /// 已完成订单 已出库
+        /// </summary>
+        Completed = 0,
+        /// <summary>
+        /// 由于缺书 订单无法完成
+        /// </summary>
+        OutOfStock = 1,
+        /// <summary>
+        /// 未处理该图书订单
+        /// </summary>
+        Unhandled = 2,
+        /// <summary>
+        /// 该订单被拒绝
+        /// </summary>
+        Rejected = 3
     }
 }

@@ -52,6 +52,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -170,6 +172,58 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="DAL\BookReservationContext.cs" />
+    <Compile Include="Entities\BookManagement.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookManagement.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BookManagement.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BookManagement.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookManagement.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EnuTestType.cs">
+      <DependentUpon>BookManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LackBooksStatus.cs">
+      <DependentUpon>BookManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\NotificationStatus.cs">
+      <DependentUpon>BookManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\OrderStatus.cs">
+      <DependentUpon>BookManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PurchasingStatus.cs">
+      <DependentUpon>BookManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\T_Book.cs">
+      <DependentUpon>BookManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\T_BookToBePurchased.cs">
+      <DependentUpon>BookManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\T_LackBooks.cs">
+      <DependentUpon>BookManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\T_Notification.cs">
+      <DependentUpon>BookManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\T_Order.cs">
+      <DependentUpon>BookManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\T_Test.cs">
+      <DependentUpon>BookManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\T_User.cs">
+      <DependentUpon>BookManagement.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -177,6 +231,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\LoginService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -188,12 +243,29 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\ie10-viewport-bug-workaround.css" />
     <Content Include="Content\Signin.css" />
+    <Content Include="Entities\BookManagement.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BookManagement.edmx</DependentUpon>
+      <LastGenOutput>BookManagement.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entities\BookManagement.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BookManagement.edmx</DependentUpon>
+      <LastGenOutput>BookManagement.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Entities\BookManagement.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BookManagement.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Entities\BookManagement.edmx.diagram">
+      <DependentUpon>BookManagement.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ie10-viewport-bug-workaround.js.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -242,15 +314,16 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

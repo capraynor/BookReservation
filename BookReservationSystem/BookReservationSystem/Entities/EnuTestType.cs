@@ -10,16 +10,11 @@
 namespace BookReservationSystem.Entities
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class T_LackBooks
+    public enum EnuTestType : short
     {
-        public int Id { get; set; }
-        public string ISBN { get; set; }
-        public Nullable<int> Quantity { get; set; }
-        public string VerifiedBy { get; set; }
-        public Nullable<System.DateTime> VerifiedTime { get; set; }
-        public string VerifiedNote { get; set; }
-        public Nullable<LackBooksStatus> Status { get; set; }
+        Member1 = 1,
+        Member2 = 2,
+        Member3 = 3
     }
 }
