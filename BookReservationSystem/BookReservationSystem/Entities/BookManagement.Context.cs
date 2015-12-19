@@ -13,10 +13,10 @@ namespace BookReservationSystem.Entities
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BookManagementEntities1 : DbContext
+    public partial class BookManagementEntities2 : DbContext
     {
-        public BookManagementEntities1()
-            : base("name=BookManagementEntities1")
+        public BookManagementEntities2()
+            : base("name=BookManagementEntities2")
         {
         }
     

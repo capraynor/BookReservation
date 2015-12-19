@@ -61,9 +61,9 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
-          <Property Name="Password" Type="nchar" MaxLength="10" />
-          <Property Name="Role" Type="nchar" MaxLength="10" />
-          <Property Name="RoleDescription" Type="nchar" MaxLength="10" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Role" Type="smallint" />
+          <Property Name="RoleDescription" Type="nvarchar(max)" />
         </EntityType>
         <EntityContainer Name="BookManagementModelStoreContainer">
           <EntitySet Name="T_Book" EntityType="Self.T_Book" Schema="dbo" store:Type="Tables" />
@@ -134,11 +134,11 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Role" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="RoleDescription" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="Int16" />
+          <Property Name="RoleDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="BookManagementEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BookManagementEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="T_Book" EntityType="Self.T_Book" />
           <EntitySet Name="T_BookToBePurchased" EntityType="Self.T_BookToBePurchased" />
           <EntitySet Name="T_LackBooks" EntityType="Self.T_LackBooks" />
@@ -151,7 +151,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BookManagementModelStoreContainer" CdmEntityContainer="BookManagementEntities1">
+        <EntityContainerMapping StorageEntityContainer="BookManagementModelStoreContainer" CdmEntityContainer="BookManagementEntities2">
           <EntitySetMapping Name="T_Book">
             <EntityTypeMapping TypeName="BookManagementModel.T_Book">
               <MappingFragment StoreEntitySet="T_Book">
