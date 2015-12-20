@@ -17,20 +17,44 @@ namespace BookReservationSystem.Controllers
    
     
     public class AccountController : Controller {
-        private LoginService _loginService;
+        private readonly LoginService _loginService;
 
         public AccountController() {
             this._loginService = new LoginService();
         }
         [HttpGet]
         public ActionResult Login() {
+            this.ViewBag.Message = "请先登录";
             return View();
         }
 
         [HttpPost]
         public ActionResult Login(string inputEmail,string inputPassword) {
+            var user = _loginService.CheckLogin(inputEmail, inputPassword);
+            if (user == null) {
+                this.ViewBag.Message = "登录失败";
+                return View();
+            }
+            this.Session["CurrentUser"] = user;
+            this.Session["IsLogin"] = true;
+            switch (user.Role) {
+                case UserRole.TeacherOrStudent: {
+                    return RedirectToActionPermanent ( "TeacherOrStudent", "Home" );
+                }
+                case UserRole.DistributionManager: {
+                    return RedirectToActionPermanent ( "DistributionManagement", "Home" );
+                }
+                case UserRole.Buyer: {
+                    return RedirectToActionPermanent( "PurchaseManagement", "Home" );
+                }
+                case null:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
 
-            return RedirectToActionPermanent("Index", "Home");
+            this.ViewBag.Message = "登录失败";
+            return View ();
         }
     }
 }

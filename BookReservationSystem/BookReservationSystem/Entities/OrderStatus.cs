@@ -16,6 +16,7 @@ namespace BookReservationSystem.Entities
         Completed = 0,
         OutOfStock = 1,
         Unhandled = 2,
-        Rejected = 3
+        Rejected = 3,
+        AwaitingDelivery = 4
     }
 }

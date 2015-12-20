@@ -23,5 +23,14 @@ namespace BookReservationSystem.Services {
             }
             return User.ToList().First();
         }
+
+        public T_User CheckLogin(string email, string password) {
+            var user = from c in this.DbContext.Users where c.Email == email select c;
+            if (!user.Any()) {
+                return null;
+            }
+
+            return user.First().Password != password ? null : user.First();
+        }
     }
 }
