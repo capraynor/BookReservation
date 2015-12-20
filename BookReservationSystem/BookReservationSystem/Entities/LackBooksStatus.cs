@@ -13,17 +13,8 @@ namespace BookReservationSystem.Entities
     
     public enum LackBooksStatus : short
     {
-        /// <summary>
-        /// 正在采购
-        /// </summary>
         BeingProcured = 0,
-        /// <summary>
-        /// 未处理
-        /// </summary>
         Unhandled = 1,
-        /// <summary>
-        /// 拒绝
-        /// </summary>
         Rejected = 2
     }
 }

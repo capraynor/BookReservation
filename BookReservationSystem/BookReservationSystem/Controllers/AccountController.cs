@@ -5,26 +5,32 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using BookReservationSystem.Entities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BookReservationSystem.Models;
+using BookReservationSystem.Services;
 
 namespace BookReservationSystem.Controllers
 {
-    [Authorize]
-    public class AccountController : Controller
-    {
+   
+    
+    public class AccountController : Controller {
+        private LoginService _loginService;
+
+        public AccountController() {
+            this._loginService = new LoginService();
+        }
         [HttpGet]
-        [AllowAnonymous]
         public ActionResult Login() {
             return View();
         }
 
         [HttpPost]
-        [AllowAnonymous]
         public ActionResult Login(string inputEmail,string inputPassword) {
-            return HttpNotFound("Login success "+inputEmail+" "+ inputPassword );
+
+            return RedirectToActionPermanent("Index", "Home");
         }
     }
 }

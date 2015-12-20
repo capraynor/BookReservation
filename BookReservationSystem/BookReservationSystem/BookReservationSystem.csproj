@@ -224,6 +224,9 @@
     <Compile Include="Entities\T_User.cs">
       <DependentUpon>BookManagement.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\UserRole.cs">
+      <DependentUpon>BookManagement.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -313,6 +316,9 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\TeacherOrStudent.cshtml" />
+    <Content Include="Views\Home\PurchaseManagement.cshtml" />
+    <Content Include="Views\Home\DistributionManagement.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

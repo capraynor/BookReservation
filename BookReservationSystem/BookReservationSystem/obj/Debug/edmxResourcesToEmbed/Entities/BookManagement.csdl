@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BookManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="T_Book">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ISBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="T_BookToBePurchased">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ISBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="BookManagementModel.PurchasingStatus" />
+  </EntityType>
+  <EntityType Name="T_Notification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="From" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="To" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="BookManagementModel.NotificationStatus" />
+  </EntityType>
+  <EntityType Name="T_Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderOwner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ISBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Status" Type="BookManagementModel.OrderStatus" />
+  </EntityType>
+  <EntityType Name="T_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="BookManagementModel.UserRole" />
+    <Property Name="RoleDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="BookManagementEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="T_Book" EntityType="Self.T_Book" />
+    <EntitySet Name="T_BookToBePurchased" EntityType="Self.T_BookToBePurchased" />
+    <EntitySet Name="T_Notification" EntityType="Self.T_Notification" />
+    <EntitySet Name="T_Order" EntityType="Self.T_Order" />
+    <EntitySet Name="T_User" EntityType="Self.T_User" />
+    <EntitySet Name="T_Test" EntityType="BookManagementModel.T_Test" />
+    <EntitySet Name="T_LackBooks" EntityType="BookManagementModel.T_LackBooks" />
+  </EntityContainer>
+  <EntityType Name="T_Test">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="EnuTest" Type="BookManagementModel.EnuTestType" Nullable="false" />
+  </EntityType>
+  <EnumType Name="EnuTestType" UnderlyingType="Int16">
+    <Member Name="Member1" Value="1" />
+    <Member Name="Member2" Value="2" />
+    <Member Name="Member3" Value="3" />
+  </EnumType>
+  <EnumType Name="OrderStatus" UnderlyingType="Int16">
+    <Member Name="Completed" Value="0" />
+    <Member Name="OutOfStock" Value="1" />
+    <Member Name="Unhandled" Value="2" />
+    <Member Name="Rejected" Value="3" />
+  </EnumType>
+  <EnumType Name="PurchasingStatus" UnderlyingType="Int16">
+    <Member Name="Completed" Value="0" />
+    <Member Name="Unhandled" Value="1" />
+    <Member Name="Rejected" Value="2" />
+  </EnumType>
+  <EnumType Name="NotificationStatus" UnderlyingType="Int16">
+    <Member Name="Read" Value="0" />
+    <Member Name="NotRead" Value="1" />
+    <Member Name="Reject" Value="2" />
+  </EnumType>
+  <EntityType Name="T_LackBooks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ISBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="VerifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VerifiedTime" Type="DateTime" Precision="3" />
+    <Property Name="VerifiedNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="BookManagementModel.LackBooksStatus" />
+  </EntityType>
+  <EnumType Name="LackBooksStatus" UnderlyingType="Int16">
+    <Member Name="BeingProcured" Value="0" />
+    <Member Name="Unhandled" Value="1" />
+    <Member Name="Rejected" Value="2" />
+  </EnumType>
+  <EnumType Name="UserRole" UnderlyingType="Int16">
+    <Member Name="TeacherOrStudent" Value="1" />
+    <Member Name="DistributionManager" Value="2" />
+    <Member Name="Buyer" Value="3" />
+  </EnumType>
+</Schema>

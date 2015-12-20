@@ -17,7 +17,7 @@ namespace BookReservationSystem.Entities
         public int Id { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public Nullable<short> Role { get; set; }
+        public Nullable<UserRole> Role { get; set; }
         public string RoleDescription { get; set; }
     }
 }

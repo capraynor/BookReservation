@@ -16,7 +16,12 @@ namespace BookReservationSystem.Services {
         public T_User GetUserPassword(string email, string password) {
             var User = from user in this.DbContext.Users where user.Email == email select user;
 
-            return User.First();
+            
+
+            foreach (var user in User) {
+                Console.WriteLine(user.Email);
+            }
+            return User.ToList().First();
         }
     }
 }

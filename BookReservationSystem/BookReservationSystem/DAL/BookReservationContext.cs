@@ -12,7 +12,7 @@ namespace BookReservationSystem.DAL {
     /// 数据库上下文
     /// </summary>
     public class BookReservationContext:DbContext {
-        public BookReservationContext() : base("BookReservationContext") {
+        public BookReservationContext() : base( "BookManagementEntities2" ) {
         }
 
         public DbSet<T_User> Users { get; set; }

@@ -134,7 +134,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Role" Type="Int16" />
+          <Property Name="Role" Type="BookManagementModel.UserRole" />
           <Property Name="RoleDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="BookManagementEntities2" annotation:LazyLoadingEnabled="true">
@@ -190,6 +190,11 @@
           <Member Name="BeingProcured" Value="0" />
           <Member Name="Unhandled" Value="1" />
           <Member Name="Rejected" Value="2" />
+        </EnumType>
+        <EnumType Name="UserRole" UnderlyingType="Int16">
+          <Member Name="TeacherOrStudent" Value="1" />
+          <Member Name="DistributionManager" Value="2" />
+          <Member Name="Buyer" Value="3" />
         </EnumType>
       </Schema>
     </edmx:ConceptualModels>

@@ -13,17 +13,8 @@ namespace BookReservationSystem.Entities
     
     public enum PurchasingStatus : short
     {
-        /// <summary>
-        /// 完成采购
-        /// </summary>
         Completed = 0,
-        /// <summary>
-        /// 未处理该图书采购请求
-        /// </summary>
         Unhandled = 1,
-        /// <summary>
-        /// 拒绝该图书采购请求
-        /// </summary>
         Rejected = 2
     }
 }

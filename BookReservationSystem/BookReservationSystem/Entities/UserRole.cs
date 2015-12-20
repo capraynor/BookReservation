@@ -11,10 +11,10 @@ namespace BookReservationSystem.Entities
 {
     using System;
     
-    public enum NotificationStatus : short
+    public enum UserRole : short
     {
-        Read = 0,
-        NotRead = 1,
-        Reject = 2
+        TeacherOrStudent = 1,
+        DistributionManager = 2,
+        Buyer = 3
     }
 }
