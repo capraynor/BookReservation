@@ -21,7 +21,8 @@ $("#confirmPurchase").click(function () {
 
         success: function(recivedContent) {
             if (!recivedContent.Success) {
-                return alert("购买失败 原因是： " + recivedContent.Message);
+                alert("购买失败 原因是： " + recivedContent.Message);
+                return window.location.reload();
             }
 
             alert(recivedContent.Message);

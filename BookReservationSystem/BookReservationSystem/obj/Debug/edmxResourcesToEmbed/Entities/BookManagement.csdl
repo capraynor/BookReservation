@@ -39,6 +39,7 @@
     <Property Name="ISBN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Quantity" Type="Int32" />
     <Property Name="Status" Type="BookManagementModel.OrderStatus" />
+    <Property Name="OrderId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="T_User">
     <Key>
@@ -76,6 +77,7 @@
     <Member Name="OutOfStock" Value="1" />
     <Member Name="Unhandled" Value="2" />
     <Member Name="Rejected" Value="3" />
+    <Member Name="AwaitingDelivery" Value="4" />
   </EnumType>
   <EnumType Name="PurchasingStatus" UnderlyingType="Int16">
     <Member Name="Completed" Value="0" />
@@ -98,11 +100,13 @@
     <Property Name="VerifiedTime" Type="DateTime" Precision="3" />
     <Property Name="VerifiedNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Status" Type="BookManagementModel.LackBooksStatus" />
+    <Property Name="RelatedOrderId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EnumType Name="LackBooksStatus" UnderlyingType="Int16">
     <Member Name="BeingProcured" Value="0" />
     <Member Name="Unhandled" Value="1" />
     <Member Name="Rejected" Value="2" />
+    <Member Name="Completed" Value="4" />
   </EnumType>
   <EnumType Name="UserRole" UnderlyingType="Int16">
     <Member Name="TeacherOrStudent" Value="1" />

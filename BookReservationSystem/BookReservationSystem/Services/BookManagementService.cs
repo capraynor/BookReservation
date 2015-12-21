@@ -25,9 +25,20 @@ namespace BookReservationSystem.Services {
             }
 
             var currentBook = book.First();
-
+            var relatedOrderId = new Guid ().ToString ();
             if (quantity > currentBook.Quantity) {
-                throw new Exception($"该书库存不足 ISBN：{ISBN} 书名：{currentBook.Title}");
+                var lackBooks = new T_LackBooks() {
+                    ISBN = currentBook.ISBN,
+                    Quantity = quantity-currentBook.Quantity,
+                    Status = LackBooksStatus.Unhandled,
+                    RelatedOrderId = relatedOrderId
+                };
+
+                DbContext.LackBooks.Add(lackBooks);
+                
+                GenerateOutOfStockOrder(ISBN, quantity, orderOwner, relatedOrderId );
+                DbContext.SaveChanges ();
+                throw new Exception ( $"该书库存不足 ISBN：{ISBN} 书名：{currentBook.Title}" );
             }
             else {
                 //减少库存
@@ -49,6 +60,28 @@ namespace BookReservationSystem.Services {
 
                 DbContext.SaveChanges();
             }
+        }
+
+
+        /// <summary>
+        /// 生成缺书订单
+        /// </summary>
+        /// <param name="ISBN"></param>
+        /// <param name="quantity"></param>
+        /// <param name="orderOwner"></param>
+        /// <param name="orderId"></param>
+        private void GenerateOutOfStockOrder(string ISBN, int quantity, string orderOwner, string orderId) {
+            var order = new T_Order () {
+                OrderOwner = orderOwner,
+                ISBN = ISBN,
+                Quantity = quantity,
+                Status = OrderStatus.OutOfStock
+
+            };
+            DbContext.Orders.Add ( order );
+
+
+            DbContext.SaveChanges ();
         }
     }
 }

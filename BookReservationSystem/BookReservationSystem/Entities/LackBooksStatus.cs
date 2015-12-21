@@ -15,6 +15,7 @@ namespace BookReservationSystem.Entities
     {
         BeingProcured = 0,
         Unhandled = 1,
-        Rejected = 2
+        Rejected = 2,
+        Completed = 4
     }
 }

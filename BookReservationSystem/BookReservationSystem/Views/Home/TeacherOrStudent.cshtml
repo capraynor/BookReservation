@@ -107,7 +107,7 @@
                 <td id="bookISBN\@book.Id">@book.ISBN</td>
                 <td id="bookQuantity\@book.Id">@book.Quantity</td>
                 <td id="Description\@book.Id">@book.Description</td>
-                <td><button class="btn btn-success" data-toggle="modal" data-target="#buyBooksModal" onclick="onPurchaseButtonClicked('@book.Id', '@book.ISBN', '@book.Title')">采购</button></td>
+                <td><button class="btn btn-success" data-toggle="modal" data-target="#buyBooksModal" onclick="onPurchaseButtonClicked('@book.Id', '@book.ISBN', '@book.Title')">购买</button></td>
             </tr>
         }
 
@@ -158,10 +158,10 @@
         </div>
     </div>
 </div>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/Scripts/jquery-1.10.2.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="/Scripts/jquery-1.10.2.js"></script>
+    @Scripts.Render( "~/bundles/bootstrap" )
     <script src="/Scripts/TeacherOrStudent.js"></script>
     <script src="/Scripts/ie10-viewport-bug-workaround.js.js"></script>
-    @Scripts.Render( "~/bundles/bootstrap" )
 </body>
 </html>

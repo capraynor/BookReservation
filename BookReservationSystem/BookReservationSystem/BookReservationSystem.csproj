@@ -231,8 +231,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DistributionManagerViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PurchaseManagerViewModel.cs" />
     <Compile Include="Models\TeacherOrStudentViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BookManagementService.cs" />
@@ -275,6 +277,7 @@
       <DependentUpon>BookManagement.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\PurchaseManagerManagement.js" />
     <Content Include="Scripts\ie10-viewport-bug-workaround.js.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -286,6 +289,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\DistributionManager.js" />
     <Content Include="Scripts\TeacherOrStudent.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />

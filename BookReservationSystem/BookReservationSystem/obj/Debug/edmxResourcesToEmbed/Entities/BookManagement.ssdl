@@ -31,6 +31,7 @@
     <Property Name="VerifiedTime" Type="datetime" />
     <Property Name="VerifiedNote" Type="nvarchar(max)" />
     <Property Name="Status" Type="smallint" />
+    <Property Name="RelatedOrderId" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="T_Notification">
     <Key>
@@ -51,6 +52,7 @@
     <Property Name="ISBN" Type="nvarchar" MaxLength="50" />
     <Property Name="Quantity" Type="int" />
     <Property Name="Status" Type="smallint" />
+    <Property Name="OrderId" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="T_Test">
     <Key>

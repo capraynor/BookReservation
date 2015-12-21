@@ -21,5 +21,6 @@ namespace BookReservationSystem.Entities
         public Nullable<System.DateTime> VerifiedTime { get; set; }
         public string VerifiedNote { get; set; }
         public Nullable<LackBooksStatus> Status { get; set; }
+        public string RelatedOrderId { get; set; }
     }
 }

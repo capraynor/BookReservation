@@ -36,7 +36,7 @@ namespace BookReservationSystem.Controllers {
             var currentUser = Session["CurrentUser"] as T_User;
             
             this.ViewBag.CurrentUser = currentUser;
-            this.ViewBag.IsLogin = isLogin;
+            this.ViewBag.IsLogin = true;
             var teacherOrStudentViewModel = new TeacherOrStudentViewModel {
                 CurrentUser = currentUser,
                 BookList = this._bookManagementService.GetAllBooks(),
@@ -78,11 +78,28 @@ namespace BookReservationSystem.Controllers {
                 return RedirectToActionPermanent ( "Login", "Account" );
             }
             var currentUser = Session["CurrentUser"] as T_User;
-            
+            var viewModel = new PurchaseManagerViewModel() {
+                LackBooks = _orderManagementService.GetAllLackBooks () 
+            };
             this.ViewBag.CurrentUser = currentUser;
             this.ViewBag.IsLogin = isLogin;
-            return View();
+            return View( viewModel );
         }
+
+        [HttpPost]
+        public ActionResult FinishPurchase(int lackBookId) {
+
+            _orderManagementService.FinishedPurchase(lackBookId);
+            return Json(new {success = true, message = "操作成功！"});
+        }
+
+
+        [HttpPost]
+        public ActionResult StartDistribute(int orderId) {
+            _orderManagementService.StartDistribute(orderId);
+            return Json(new {success = true, orderId = orderId, message = "来自服务器的消息：操作成功！"});
+        }
+
         /// <summary>
         /// 分发管理员的Action
         /// </summary>
@@ -96,7 +113,13 @@ namespace BookReservationSystem.Controllers {
             
             this.ViewBag.CurrentUser = currentUser;
             this.ViewBag.IsLogin = isLogin;
-            return View();
+            var orders = _orderManagementService.GetAllUnhandledOrders();
+            var books = _bookManagementService.GetAllBooks();
+            var viewModel = new DistributionManagerViewModel() {
+                Books = books,
+                UnhandledOrders = orders
+            };
+            return View(viewModel);
         }
 
         public ActionResult About ( ) {

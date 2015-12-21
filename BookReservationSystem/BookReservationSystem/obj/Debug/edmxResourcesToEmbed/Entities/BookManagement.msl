@@ -37,6 +37,7 @@
     <EntitySetMapping Name="T_Order">
       <EntityTypeMapping TypeName="BookManagementModel.T_Order">
         <MappingFragment StoreEntitySet="T_Order">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="OrderOwner" ColumnName="OrderOwner" />
           <ScalarProperty Name="ISBN" ColumnName="ISBN" />
@@ -67,6 +68,7 @@
     <EntitySetMapping Name="T_LackBooks">
       <EntityTypeMapping TypeName="BookManagementModel.T_LackBooks">
         <MappingFragment StoreEntitySet="T_LackBooks">
+          <ScalarProperty Name="RelatedOrderId" ColumnName="RelatedOrderId" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="VerifiedNote" ColumnName="VerifiedNote" />
           <ScalarProperty Name="VerifiedTime" ColumnName="VerifiedTime" />
